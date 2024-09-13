@@ -31,8 +31,8 @@ if getBot().status == BotStatus.online then
         end
 
         -- disini (tambahkan logika drop item 1234 jika lebih dari 1)
-        if getBot():getInventory():getItemCount(11398) > 1 then
-            getBot():drop(11398, getBot():getInventory():getItemCount(11398))
+        if getBot():getInventory():getItemCount(1828) > 1 then
+            getBot():drop(1828, getBot():getInventory():getItemCount(1828))
             sleep(600)
         end
 
