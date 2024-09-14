@@ -35,6 +35,11 @@ if getBot().status == BotStatus.online then
             getBot():drop(1828, getBot():getInventory():getItemCount(1828))
             sleep(600)
         end
+        
+                if getBot():getInventory():getItemCount(10228) > 1 then
+            getBot():drop(10228, getBot():getInventory():getItemCount(10228))
+            sleep(600)
+        end
 
         if getBot().gem_count < 2000 then
             getBot():drop(242,getBot():getInventory():getItemCount(242))
