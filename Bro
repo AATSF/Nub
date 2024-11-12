@@ -1,4 +1,4 @@
-WORLD = "JBT555S"
+WORLD = "REWBOS55"
 WORLDID = "MBB"
 
 function checkAndDropInventory()
