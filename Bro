@@ -1,5 +1,5 @@
-WORLD = "REWBOS55"
-WORLDID = "MBB"
+WORLD = "CAFH55"
+WORLDID = "OS"
 
 function checkAndDropInventory()
     if getBot():getInventory():getItemCount(242) == 200 then
